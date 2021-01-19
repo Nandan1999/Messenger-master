@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+
+<!--
+	This file is rendered by express.js, when the rurl /chat/123456 is visited in a browser.
+	It includes jQuery, socket.io.js (it is automatically served by the socket.io library), 
+	and a few more JavaScript files that you should check out.
+-->
+
+<html>
+
+<head>
+
+	<title>Group chat room</title>
+
+	<link type="text/css" rel="stylesheet" href="../css/stylesheet.css" />
+	<link href="https://fonts.googleapis.com/css?family=Open+Sans Condensed:300italic,300,700" rel="stylesheet" type="text/css">
+
+
+</head>
+<style>
+body{
+   background: black;
+	}
+#d1{
+	border: solid greenyellow 2px;
+	right: 0;
+  bottom: 0;
+	height: 570px;
+	width: 295px;
+	position: fixed;
+}
+#userlist{
+	padding-left: 23px;
+}
+h2{
+	padding-top: 20px;
+	padding-left: 23px;
+	color: white;
+}
+
+</style>
+<body>
+    <header class="banner">
+
+		<h1 class="bannertext">
+			<a  id="logo">Created by: &nbsp;&nbsp;<span>Anurag Tiwari , Nandan Jha , Nitin Sharma , Gourav Mishra</span></a>
+		</h1>
+
+    </header>
+    <div id="d1">
+			<h2>People in the group!</h2>
+			<div ng-app="myapp" ng-controller="myctrl">
+					<li class="me1" ng-repeat="x in user">
+						<div class="image1">
+							<img class="input" src="../img/{{x.pimg}}"/>
+						</div>
+						<p class="nam" >{{x.pname}}</p>
+					</li>
+			  
+				</div>
+			
+		</div>
+    <section class="section">
+
+		<!-- These elements are displayed as white info cards in the middle of the screen -->
+
+		<div class="connected">
+      
+			<img src="../img/unnamed.jpg" id="creatorImage" />
+			<img src="../img/Avatar2.jpg"  id="avatar2" />
+			<img src="../img/Avatar1.jpg"  id="avatar1" />
+			<img src="../img/Avatar.jpg"  id="avatar" />
+			<img src="../img/Avatar3.jpg"  id="avatar3" />
+			<img src="../img/Avatar4.jpg"  id="avatar4" />
+			<img src="../img/Avatar5.jpg"  id="avatar5" />
+			
+			<div class="infoConnected">
+				<h2 id="h2">Who are you?</h2>
+				<br/>
+
+				<form class="loginForm">
+					<input type="text" id="yourName" placeholder="Your nick name" /><br/>
+					<input type="text" id="yourEmail" placeholder="Your email address" /><br/>
+					<input type="submit" id="yourEnter" value="ENTER" />
+				</form>
+
+			</div>
+
+        </div>
+				<div class="chatscreen">
+				
+					<ul class="chats">
+						<!-- The chat messages will go here -->
+					</ul>
+			
+				</div>
+	</section>
+	
+
+    <footer id="footer1">
+		    <label id="label1">Choose your file 
+				<input type="file" id="myFile" name="filename">
+			  </label>
+		
+		<form id="chatform">
+
+			<textarea id="message" placeholder="Write something.."></textarea>
+			<input type="submit" id="submit" value="SEND"/>
+		</form>
+		
+    </footer>
+    
+
+		<!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script> -->
+	<script src="../lib/plugins/jQuery/jQuery-2.1.4.min.js"></script>
+	<script src="../js/moment.min.js"></script>
+	<script src="/socket.io/socket.io.js"></script>
+	<script src="../js/chatgrp.js"></script>
+	<script src="../lib/plugins/angular/angular.js" type="text/javascript"></script>
+	<!-- <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script> -->
+	<script src="../lib/plugins/angular-socket.js" type="text/JavaScript"></script>
+
+</body>
+</html>

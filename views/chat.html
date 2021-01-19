@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+
+<!--
+	This file is rendered by express.js, when the rurl /chat/123456 is visited in a browser.
+	It includes jQuery, socket.io.js (it is automatically served by the socket.io library), 
+	and a few more JavaScript files that you should check out.
+-->
+
+<html ng-app="myApp" ng-controller="myCtrl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>Private chat room</title>
+
+	<link type="text/css" rel="stylesheet" href="../css/stylesheet.css" />
+	
+	<link href="https://fonts.googleapis.com/css?family=Open+Sans Condensed:300italic,300,700" rel="stylesheet" type="text/css">
+
+
+</head>
+<style>
+body{
+	background: black;
+}
+
+</style>
+<body>
+
+	<header class="banner">
+
+		<h1 class="bannertext">
+			<a  id="logo">Created by: &nbsp;&nbsp;<span>Anurag Tiwari , Nandan Jha , Nitin Sharma , Gourav Mishra</span></a>
+		</h1>
+
+	</header>
+	
+
+	<section class="section">
+
+		<!-- These elements are displayed as white info cards in the middle of the screen -->
+		
+		<div class="connected">
+
+			<img src="../img/unnamed.jpg" id="creatorImage" />
+			
+			<img src="../img/Avatar2.jpg"  id="avatar2" />
+			<img src="../img/Avatar1.jpg"  id="avatar1" />
+			<img src="../img/Avatar.jpg"  id="avatar" />
+			<img src="../img/Avatar3.jpg"  id="avatar3" />
+			<img src="../img/Avatar4.jpg"  id="avatar4" />
+			<img src="../img/Avatar5.jpg"  id="avatar5" />
+
+			<div class="infoConnected">
+				<h2>Who are you?</h2>
+				<br/>
+
+				<form class="loginForm">
+					<input type="text" id="yourName" placeholder="Your nick name" /><br/>
+					<input type="text" id="yourEmail" placeholder="Your email" /><br/>
+					<input type="submit" id="yourEnter" value="ENTER" />
+				</form>
+
+			</div>
+
+		</div>
+
+		<div class="personinside" >
+			
+				<img  src="../img/unnamed.jpg" id="ownerImage" />
+				<img src="../img/unnamed.jpg" id="creatorImage1" />
+				<img src="../img/Avatar2.jpg"  id="avatar6" />
+				<img src="../img/Avatar1.jpg"  id="avatar7" />
+				<img src="../img/Avatar.jpg"  id="avatar8" />
+				<img src="../img/Avatar3.jpg"  id="avatar9" />
+				<img src="../img/Avatar4.jpg"  id="avatar10" />
+				<img src="../img/Avatar5.jpg"  id="avatar11" />
+			<div class="infoInside">
+				<h2>Chat with <span class="nickname-chat"></span></h2>
+				<br/>
+
+				<form class="loginForm">
+					<input type="text" id="hisName" placeholder="Your nick name" /><br/>
+					<input type="text" id="hisEmail" placeholder="Your email address" /><br/>
+					<input type="submit" id="hisEnter" value="CHAT" />
+				</form>
+
+			</div>
+
+		</div>
+
+		<div class="invite-textfield">
+
+			<h2>You are logged in</h2>
+			<h5>Chat with your friend by clicking name of people you know</h5>
+
+			
+					<div ng-app="myApp" ng-controller="myCtrl">
+                       <a ng-repeat="x in users" href="{{ x.puser }}" id="link"><li>{{ x.pname }}</li></a>
+					</div>
+							
+			
+			
+		</div>
+
+		<div class="left">
+
+			<img  src="../img/unnamed.jpg" id="leftImage" />
+
+			<div class="info">
+				<h2><span class="nickname-left"></span> has left this chat.</h2>
+				<h5>Invite somebody else by sending them this page.</h5>
+			</div>
+
+		</div>
+
+		<div class="toomanypeople">
+
+			<h2>Oops, you can not join this chat!</h2>
+			<h5>There are already two people in it. Would you like to create a <a title="New Room" href="/create" id="room">new room</a>?</h5>
+
+		</div>
+
+		<div class="nomessages">
+
+			<img src="../img/unnamed.jpg" id="noMessagesImage" />
+
+			<div class="info">
+				<h2>You are chatting with <span class="nickname-chat"></span>.</h2>
+				<h5>Send them a message from the form below!</h5>
+			</div>
+
+		</div>
+
+		<div class="chatscreen">
+
+			<ul class="chats">
+				<!-- The chat messages will go here -->
+			</ul>
+            
+		</div>
+		
+	</section>
+	
+	<footer>
+
+		<label id="label1">Choose your file 
+			<input type="file" id="myFile" name="filename">
+		  </label>
+	
+
+		<form id="chatform">
+
+			<textarea id="message" placeholder="Write something.."></textarea>
+			<input type="submit" id="submit" value="SEND"/>
+		</form>
+
+	</footer>
+	
+	
+	<!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script> -->
+	<script src="../lib/plugins/jQuery/jQuery-2.1.4.min.js"></script>
+	<script src="../js/moment.min.js"></script>
+	<script src="/socket.io/socket.io.js"></script>
+	<script src="../js/chat.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+	<script src="../lib/plugins/angular-socket.js" type="text/JavaScript"></script>
+
+	
+
+    
+  
+
+</body>
+
+</html>
